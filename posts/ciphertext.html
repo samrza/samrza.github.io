@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>decoding ciphertext</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Mynerve&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="post-page">
+    <div class="nav">
+      <div class="logo"><a href="../index.html">sameer raza.</a></div>
+      <div class="nav-links">
+        <a href="../pages/projects.html">projects</a>
+        <a href="../pages/blog.html">blog</a>
+        <a href="../pages/now.html">now</a>
+        <a href="../pages/reading.html">reading</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>decoding ciphertext</h1>
+      <div class="meta">5 mar 2026 · 4 min read</div>
+
+      <div class="image">
+        <img src="../images/ciphertext.png" alt="diagram" />
+      </div>
+
+      <p>
+        this is fun way to store advice for your future self, if you directly
+        publish many people mock you or whatever top say, people who are smart
+        able to crack it an do you know they are the people worth knowing
+      </p>
+
+      <p>
+        ciphertext = 'Xwx8BGL9VRp3VQqXD0Z0VQ85BQAYCmuUDG9XFw0tDGAYDmptCm
+        <br />ttLS80FlN/ZxVtBm9WEmWSVQ84VTD/FlN7EmuTZmx4VQ8lVQ9XCmMYKD=='
+      </p>
+      <p>Hint: r3 r7 b4 r3</p>
+      <p>
+        Meaning: <br />
+        r3 = ROT13 <br />
+        r7 = ROT47 <br />b4 = Base64
+      </p>
+      <p>
+        Apply ROT13 to the ciphertext. <br />Base64 decode the result
+        <br />Apply ROT47 to the decoded text <br />Apply ROT13 again
+      </p>
+      <p>
+        output is your original text : Luxury is sleep automatically comes at
+        10pm and waking at 5am without an alarm.
+      </p>
+      <p>Signing Off, <br />Sameer</p>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const code = button.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+
+        button.innerText = "copied";
+        setTimeout(() => (button.innerText = "copy"), 1500);
+      }
+    </script>
+  </body>
+</html>

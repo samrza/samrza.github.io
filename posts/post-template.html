@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>building my first api</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Mynerve&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="post-page">
+    <div class="nav">
+      <div class="logo"><a href="../index.html">sameer raza.</a></div>
+      <div class="nav-links">
+        <a href="../pages/projects.html">projects</a>
+        <a href="../pages/blog.html">blog</a>
+        <a href="../pages/now.html">now</a>
+        <a href="../pages/reading.html">reading</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>building my first api: what actually broke</h1>
+      <div class="meta">28 april 2026 · 5 min read</div>
+
+      <p>i thought building an api would be straightforward. it wasn’t.</p>
+
+      <h2>validation matters more than logic</h2>
+
+      <p>most issues came from bad input, not complex code.</p>
+      <!-- code block hai  -->
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+app.post('/api/link', async (req, res) => {
+  const { url } = req.body;
+
+  if (!url) {
+    return res.status(400).json({ error: "url required" });
+  }
+
+  // create short link
+});
+      </code></pre>
+      </div>
+
+      <p>simple checks like this saved hours later.</p>
+
+      <div class="image">
+        <img
+          src="https://blog.postman.com/wp-content/uploads/2023/11/API-design-interview-questions.jpg"
+          alt="diagram"
+        />
+        <div class="caption">basic flow of request handling</div>
+      </div>
+
+      <h2>database decisions matter early</h2>
+
+      <p>i redesigned my schema twice because i didn’t think about queries.</p>
+
+      <ul>
+        <li>optimize for reads</li>
+        <li>avoid unnecessary joins</li>
+        <li>keep schema simple</li>
+      </ul>
+
+      <blockquote>simple systems scale better than clever ones.</blockquote>
+
+      <h2>closing</h2>
+
+      <p>small project, but it changed how i think about backend systems.</p>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const code = button.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+
+        button.innerText = "copied";
+        setTimeout(() => (button.innerText = "copy"), 1500);
+      }
+    </script>
+  </body>
+</html>

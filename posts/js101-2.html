@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 101 - Part 2: Hoisting, Variables, and Functions</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Mynerve&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="post-page">
+    <div class="nav">
+      <div class="logo"><a href="../index.html">sameer raza.</a></div>
+      <div class="nav-links">
+        <a href="../pages/projects.html">projects</a>
+        <a href="../pages/blog.html">blog</a>
+        <a href="../pages/now.html">now</a>
+        <a href="../pages/reading.html">reading</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>JavaScript 101 - Part 2: Hoisting, Variables, and Functions</h1>
+      <div class="meta">16 may 2026 · 8 min read</div>
+
+      <p>Let’s start with a simple example.</p>
+
+      <p>Example 1</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+console.log(x);
+var x = 5;
+console.log(x);
+        </code></pre>
+      </div>
+
+      <p>What do you think the output will be?</p>
+
+      <p>Output:</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+undefined
+5
+        </code></pre>
+      </div>
+
+      <p>At first, this output may look confusing.</p>
+
+      <p>
+        Why does the first <code>console.log(x)</code> print
+        <code>undefined</code>?
+      </p>
+
+      <p>Why does it not give an error?</p>
+
+      <p>To understand this, we need to understand how JavaScript runs code.</p>
+
+      <p>
+        JavaScript does not directly start running the code line by line. Before
+        running the code, JavaScript first creates memory.
+      </p>
+
+      <p>
+        This happens inside the
+        <span class="highlight">Global Execution Context</span>.
+      </p>
+
+      <p>The Global Execution Context has two main phases:</p>
+
+      <p>
+        1. Memory Creation Phase <br />
+        2. Code Execution Phase
+      </p>
+
+      <p>Now let’s understand both phases using the first example.</p>
+
+      <p>In the memory creation phase:</p>
+
+      <p>
+        JavaScript scans the whole code before running it. When JavaScript sees
+        <code>var x</code>, it creates memory for <code>x</code> and stores the
+        value as <code>undefined</code>.
+      </p>
+
+      <p>
+        It does not store <code>5</code> immediately. The value
+        <code>5</code> is assigned later during the code execution phase.
+      </p>
+
+      <p>So in memory, it looks like this:</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+x = undefined
+        </code></pre>
+      </div>
+
+      <p>In the code execution phase:</p>
+
+      <p>
+        JavaScript runs the code line by line. First,
+        <code>console.log(x)</code> runs.
+      </p>
+
+      <p>
+        At this time, <code>x</code> is already in memory with the value
+        <code>undefined</code>, so JavaScript prints <code>undefined</code>.
+      </p>
+
+      <p>
+        Then <code>var x = 5</code> runs, and JavaScript assigns the value
+        <code>5</code> to <code>x</code>.
+      </p>
+
+      <p>
+        After that, the second <code>console.log(x)</code> runs. Now
+        <code>x</code> has the value <code>5</code>, so JavaScript prints
+        <code>5</code>.
+      </p>
+
+      <p>That is why the final output is:</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+undefined
+5
+        </code></pre>
+      </div>
+
+      <p>Below image summarizes all ↓</p>
+
+      <div class="image">
+        <img
+          src="/images/js101-2a.png"
+          alt="JavaScript memory creation and code execution diagram"
+        />
+      </div>
+
+      <p>Now let’s look at another example.</p>
+
+      <p>Example 2</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+console.log(cube(3));
+
+function cube(num) {
+  var ans = num * num * num;
+  return ans;
+}
+
+console.log(cube(3));
+        </code></pre>
+      </div>
+
+      <p>What do you think the output will be?</p>
+
+      <p>Output:</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+27
+27
+        </code></pre>
+      </div>
+
+      <p>Again, this may look strange.</p>
+
+      <p>
+        How can we call <code>cube(3)</code> before the function is written in
+        the code?
+      </p>
+
+      <p>The answer is again related to the memory creation phase.</p>
+
+      <p>In the memory creation phase:</p>
+
+      <p>
+        JavaScript scans the code before running it. When JavaScript sees a
+        function declaration like <code>cube()</code>, <span class="highlight">it stores the complete
+        function code in memory not <code>undefined</code> like variables.</span>
+      </p>
+
+      <p>So in memory, it looks like this:</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+cube : function cube(num) {
+  var ans = num * num * num;
+  return ans;
+}
+        
+        </code></pre>
+      </div>
+
+      <p>
+        This is why we can call <code>cube(3)</code> even before the function
+        declaration appears in the code.
+      </p>
+
+      <p>In the code execution phase:</p>
+
+      <p>
+        JavaScript starts running the code line by line. First,
+        <code>console.log(cube(3))</code> runs.
+      </p>
+
+      <p>
+        JavaScript calls the <code>cube</code> function and sends
+        <code>3</code> as the value of <code>num</code>.
+      </p>
+
+      <p>Inside the function, this line runs:</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+var ans = num * num * num;
+        </code></pre>
+      </div>
+
+      <p>Because <code>num</code> is <code>3</code>, it becomes:</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+var ans = 3 * 3 * 3;
+        </code></pre>
+      </div>
+
+      <p>So <code>ans</code> becomes <code>27</code>.</p>
+
+      <p>
+        Then the function returns <code>27</code>, so the first output is
+        <code>27</code>.
+      </p>
+
+      <p>
+        After that, JavaScript reaches the function declaration. But nothing
+        special happens there because the function was already stored in memory
+        during the memory creation phase.
+      </p>
+
+      <p>
+        Then the second <code>console.log(cube(3))</code> runs. JavaScript calls
+        the same function again, calculates <code>3 * 3 * 3</code>, and returns
+        <code>27</code>.
+      </p>
+
+      <p>So the second output is also <code>27</code>.</p>
+
+      <p>That is why the final output is:</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        <pre><code>
+27
+27
+        </code></pre>
+      </div>
+
+      <p>Below image summarizes all ↓</p>
+
+      <div class="image">
+        <img
+          src="/images/js101-2b.png"
+          alt="JavaScript function hoisting diagram"
+        />
+      </div>
+
+      <p>
+        This behavior is commonly known as
+        <span class="highlight">hoisting</span>.
+      </p>
+
+      <p>
+        Hoisting means JavaScript stores variables and function declarations in
+        memory before running the code.
+      </p>
+
+      <p>But variables and functions are stored differently.</p>
+
+      <p>
+        Variables declared with <code>var</code> are stored as
+        <code>undefined</code>.
+      </p>
+
+      <p>Function declarations are stored completely with their full code.</p>
+
+      <blockquote>
+        <p>In summary:</p>
+
+        <p>
+          In the memory phase, variables are stored as <code>undefined</code>,
+          and function declarations are stored completely with their full code.
+        </p>
+
+        <p>
+          In the code execution phase, JavaScript runs the code line by line.
+          Variables get their actual values, and functions are called and
+          executed.
+        </p>
+      </blockquote>
+
+            <a href="/posts/js101-3.html">move to JavaScript 101 - Part 3→</a>
+
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const code = button.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+
+        button.innerText = "copied";
+        setTimeout(() => (button.innerText = "copy"), 1500);
+      }
+    </script>
+  </body>
+</html>

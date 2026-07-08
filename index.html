@@ -3,57 +3,116 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sameer — Blog</title>
+    <title>Sameer</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Mynerve&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/png" href="images/dp.png" />
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon" />
   </head>
-  <body>
-    <div class="logo">Sameer.</div>
+  <body class="home-page">
+    <!-- NAV -->
+    <div class="nav home-nav">
+      <a href="pages/projects.html">projects</a>
+      <a href="pages/blog.html">blog</a>
+      <a href="pages/now.html">now</a>
+      <a href="pages/reading.html">reading</a>
+      <!-- <a href="#">contact</a> -->
+    </div>
 
-    <main class="main home">
-      <header class="hero">
-        <img class="hero-image" src="images/dp.png" alt="" />
-        <h1>engineer & developer.<br />backpacker & builder.</h1>
+    <div class="wrap">
+      <!-- Intro -->
+      <div class="intro">
+        <h1 class="name">sameer raza.</h1>
 
-        <p class="hero-subtitle">
-          I build stuff, write what I learn and explore the outdoors. more on
-          <a href="now.html">now page</a>
+        <p>backend developer focused on node.js.</p>
+
+        <p>
+          building small APIs, exploring system design, and into camping and
+          mountaineering.
         </p>
-      </header>
 
-      <section class="recent">
-        <h2>Recent</h2>
-        <div class="recent-grid">
-          <a href="projects.html" class="recent-card">
-            <span class="recent-label">Projects</span>
-            <h3>View my projects</h3>
-            <p>Side projects, experiments, and things I've built</p>
-          </a>
-          <a href="blog.html" class="recent-card">
-            <span class="recent-label">Blog</span>
-            <h3>Read the blog</h3>
-            <p>writing what i feel like and experiences...</p>
-          </a>
-          <a href="reading.html" class="recent-card">
-            <span class="recent-label">Library</span>
-            <h3>What I'm reading</h3>
-            <p>Books list that i've read</p>
-          </a>
-          <a href="gallery.html" class="recent-card">
-            <span class="recent-label">About</span>
-            <h3>More about me</h3>
-
-            <p>contact me and more about me</p>
-          </a>
+        <div class="links">
+          <a href="https://github.com/samrza">github</a>
+          <a href="https://x.com/samrza_">twitter</a>
+          <!-- <a href="#">linkedin</a> -->
+          <a href="mailto:mdsamrza@gmail.com">email</a>
         </div>
-      </section>
-    </main>
+      </div>
 
-    <footer class="footer">
-      <p>
-        © 2022 – 2026 •
-        <span class="footer-name"> Sameer</span>
-      </p>
-    </footer>
+      <!-- Projects -->
+      <div class="section">
+        <div class="section-title">projects</div>
+
+        <div>
+          <!-- <div class="item">
+          <div class="project-title">Link Analytics API</div>
+          <div class="project-meta">node.js · postgresql · redis</div>
+          <div class="project-desc">
+            generates short links, tracks click events, and stores analytics with optimized reads.
+          </div>
+        </div> -->
+
+          <!-- <div class="item">
+          <div class="project-title">Internship Tracker API</div>
+          <div class="project-meta">node.js · mongodb</div>
+          <div class="project-desc">
+            tracks applications, status, and notes with user-specific queries and clean schema design.
+          </div>
+        </div>
+        <a href="pages/projects.html" class="more">more →</a>
+      </div> -->
+        </div>
+      </div>
+
+      <!-- Blog -->
+      <div class="section">
+        <div class="section-title">blog</div>
+
+        <div>
+          <div class="blog-item">
+            <span class="date-inline">23 june 2026 :</span>
+            <a href="./posts/smallbig.html"
+              >small big thing 
+            </a>
+          </div>
+          <div class="blog-item">
+            <span class="date-inline">13 june 2026 :</span>
+            <a href="./posts/paul-wade-advice-beyond-training.html"
+              >paul "coach" wade advice beyond training
+            </a>
+          </div>
+          <div class="blog-item">
+            <span class="date-inline">7 june 2026 :</span>
+            <a href="./posts/ciphertext.html">decoding ciphertext </a>
+          </div>
+          <div class="blog-item">
+            <span class="date-inline">1 may 2026 :</span>
+            <a href="./posts/calihabits.html"
+              >Side Project #1 : Calisthenics Habits
+            </a>
+          </div>
+          <div class="blog-item">
+            <span class="date-inline">31 may 2026 :</span>
+            <a href="./posts/habit.html">habit is all</a>
+          </div>
+          <div class="blog-item">
+            <span class="date-inline">12 may 2026 :</span>
+            <a href="./posts/js101-1.html">JavaScript 101 - Part 1 </a>
+          </div>
+
+          <div class="blog-item">
+            <span class="date-inline">11 may 2026 :</span>
+            <a href="./posts/products-i-am-using.html">products i use</a>
+          </div>
+
+          <a href="pages/blog.html" class="more">more →</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

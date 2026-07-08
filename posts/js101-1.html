@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 101 - Part 1</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Mynerve&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="post-page">
+    <div class="nav">
+      <div class="logo"><a href="../index.html">sameer raza.</a></div>
+      <div class="nav-links">
+        <a href="../pages/projects.html">projects</a>
+        <a href="../pages/blog.html">blog</a>
+        <a href="../pages/now.html">now</a>
+        <a href="../pages/reading.html">reading</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>JS 101 - Part 1 : Execution Context Explained Simply</h1>
+      <div class="meta">12 may 2026 · 5 min read</div>
+
+      <blockquote>
+        JavaScript is the duct tape of the Internet. — Charlie Campbell
+      </blockquote>
+
+      <p>
+        Everything in JS happens inside
+        <span class="highlight">Execution Context</span>.
+      </p>
+      <p>
+        but what the hell is execution context, given diagram below is execution
+        context <br />it has two parts <br />memory creation phase : aka
+        Variable Environment <br />
+        code execution phase : aka Thread of Execution
+      </p>
+      <a href="/posts/js101-2.html">More in Part 2</a>
+      <div class="image">
+        <img src="../images/js101-1a.png" alt="diagram" />
+        <!-- <div class="caption">execution context diagram</div> -->
+      </div>
+
+      <p>
+        on internet or in interview question you heard of - is JavaScript
+        synchronous or asynchronous, single-threaded or multi-threaded language
+        ??
+      </p>
+      <p>
+        Answer : By Default JavaScript is
+        <span class="highlight">synchronous and single-threaded language.</span>
+        <br />
+        but what does this mean - <br />
+        synchronous : line by line , wait for previous line to finish then next
+        line ( aka top to bottom )<br />
+        single-threaded : it can execute one line at a time not multi.
+      </p>
+
+      <p>
+        <span class="highlight">Important : </span> <br />
+        JavaScript can also handle asynchronous operations using callbacks,
+        promises, async/await, etc. This happens with the help of the JavaScript
+        runtime environment and the event loop.
+      </p>
+      <p>
+        but don't stress about this now , we will explain in very simple in
+        future articles.
+      </p>
+
+      <a href="/posts/js101-2.html">move to JavaScript 101 - Part 2 →</a>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const code = button.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+
+        button.innerText = "copied";
+        setTimeout(() => (button.innerText = "copy"), 1500);
+      }
+    </script>
+  </body>
+</html>
