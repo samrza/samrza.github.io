@@ -1,0 +1,870 @@
+/* Minimalist — sans-serif, symmetric */
+
+:root {
+  --bg: #fff;
+  --text: #111;
+  --muted: #666;
+  --border: #eee;
+  --width: 560px;
+  --space: 2rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  padding: 0.5rem var(--space) 0;
+  text-align: center;
+}
+
+/* Nav — centered, symmetric */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: var(--space);
+  width: 100%;
+  max-width: 720px;
+}
+
+.nav-logo {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+}
+
+/* Main — centered column, equal padding */
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--width);
+  padding: 0 var(--space) calc(var(--space) * 2);
+  text-align: center;
+}
+
+/* Home hero */
+.hero {
+  padding: 4rem 0 3rem;
+}
+
+.hero-image {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 0px 0px 8px 8px;
+  margin: 0 auto 1.25rem;
+  display: block;
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0;
+  max-width: 36ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Recent — symmetric grid */
+.recent {
+  padding: 2rem 0;
+}
+
+.recent h2 {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+}
+
+.recent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.recent-card {
+  display: block;
+  padding: 1.25rem;
+  background: var(--bg);
+  color: inherit;
+  text-decoration: none;
+  text-align: left;
+}
+
+.recent-card:hover {
+  background: #fafafa;
+}
+
+.recent-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.recent-card h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0.2rem 0 0.25rem;
+}
+
+.recent-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Page header */
+.page-header {
+  padding: 4rem 0 2rem;
+}
+
+.page-header h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.page-header p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Projects — symmetric list */
+/* =========================
+   Projects — minimal, symmetric, compact
+   ========================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  height: 100%;
+  border-radius: 10px;
+  transition: background 0.15s ease;
+}
+
+.project-card:hover {
+  background: #fafafa;
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.project-year {
+  letter-spacing: 0.05em;
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.project-tag {
+  font-size: 0.65rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  background: #fafafa;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+
+.project-card h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.4rem;
+  line-height: 1.3;
+}
+
+.project-card p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 0.9rem;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: auto;
+}
+
+.project-links a {
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.project-links a:hover {
+  color: var(--muted);
+}
+
+
+/* Blog list */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  text-align: left;
+}
+
+.post-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+}
+
+.post-item .post-thumb {
+  width: 140px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.post-item .post-body {
+  min-width: 0;
+}
+
+.post-item time {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+.post-item h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 0.35rem;
+}
+
+.post-item h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-item h2 a:hover {
+  color: var(--muted);
+}
+
+.post-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.post-item.placeholder {
+  display: block;
+}
+
+.post-item.placeholder p {
+  font-size: 0.85rem;
+}
+
+/* Gallery — dynamic image sizes (original aspect ratio, no forced shrink) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  margin: 0;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.gallery-item figcaption {
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 0.4rem 0 0;
+}
+
+.gallery-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Life page — symmetric with rest of site (same width, centered) */
+.life-page {
+  /* uses .main max-width (560px) for consistency */
+}
+
+.life-header {
+  margin-bottom: 2rem;
+}
+
+.life-header .life-subtitle {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0;
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.life-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.life-section {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.life-section:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.life-section-title {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.life-section-intro {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.life-page .life-gallery {
+  margin: 0 auto 0.75rem;
+  padding: 0;
+  max-width: 100%;
+  gap: 1rem;
+}
+
+.life-page .gallery-item figcaption {
+  text-align: center;
+}
+
+.life-page .gallery-note {
+  margin: 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.life-hobbies {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 1.5rem;
+}
+
+.life-hobbies li {
+  font-size: 0.95rem;
+  padding: 0.25rem 0;
+}
+
+/* Goals — minimal, symmetric */
+.goals-section {
+  text-align: center;
+}
+
+.goals-section .life-section-intro {
+  margin-bottom: 1.5rem;
+}
+
+.goals-section .goal-year-block {
+  margin-bottom: 2rem;
+}
+
+.goals-section .goal-year-block:last-child {
+  margin-bottom: 0;
+}
+
+.goals-section .goal-year {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.goals-section .goal-month-block {
+  margin-bottom: 1.25rem;
+}
+
+.goals-section .goal-month {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.goals-section .goal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goals-section .goal-list li {
+  font-size: 0.9rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--border);
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.goals-section .goal-list li:last-child {
+  border-bottom: none;
+}
+
+.goals-section .goal-list li.done {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* Reading */
+.current-reading,
+.reading-by-year {
+  padding: 2rem 0;
+  text-align: left;
+}
+
+.current-reading h2,
+.reading-by-year h2 {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.reading-by-year h2 {
+  margin-top: 2.5rem;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.book-card {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #fafafa;
+}
+
+.book-cover {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.book-info h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0 0 0.2rem;
+}
+
+.book-text{
+  color: rgb(255, 0, 0);
+}
+
+.book-author,
+.book-progress {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.year-block {
+  margin-bottom: 1.5rem;
+}
+
+.year-block h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+}
+
+.book-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.book-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.book-list li:last-child {
+  border-bottom: none;
+}
+
+.book-list .book-view {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.book-list .book-view:hover {
+  color: var(--text);
+}
+
+.book-list cite {
+  font-style: normal;
+  font-weight: 500;
+}
+
+.reading-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 1.5rem;
+}
+
+/* Goals — by year, by month */
+.goals-by-year {
+  padding: 2rem 0;
+  text-align: left;
+}
+
+.goals-by-year h2 {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.goal-year-block {
+  margin-bottom: 2rem;
+}
+
+.goal-year-block h3,
+.goal-year-block .goal-year {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+
+.goal-month-block {
+  margin-bottom: 1.25rem;
+}
+
+.goal-month-block h4,
+.goal-month-block .goal-month {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.goal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goal-list li {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.goal-list li.done {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* Hobbies */
+.hobbies-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  text-align: left;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hobbies-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 1rem;
+}
+
+.hobbies-list li:last-child {
+  border-bottom: none;
+}
+
+/* Footer — centered */
+.footer {
+  padding: var(--space);
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.footer-icon {
+  color: var(--text);
+  vertical-align: middle;
+}
+
+/* Post single */
+.post-content {
+  padding: 2rem 0 3rem;
+  text-align: left;
+}
+
+.post-content h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.post-content .post-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.post-content .post-featured-img {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.post-content p {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.post-content h2 {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.post-content code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+  background: #f5f5f5;
+  padding: 0.1em 0.3em;
+}
+
+.post-content pre {
+  background: #111;
+  color: #f5f5f5;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.gallery-item img[src*="placeholder"] {
+  background: #f0f0f0;
+}
+
+@media (max-width: 640px) {
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .post-item {
+    grid-template-columns: 1fr;
+  }
+
+  .post-item .post-thumb {
+    width: 100%;
+  }
+
+  .recent-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+  }
+}
